@@ -1,3 +1,7 @@
+//Variable Declarations
+
+const nineAmText = $("#nineAm");
+const userInput = '';
 //Display the current date/time
 
 $("#currentDay").text(moment().format("dddd, MMMM Do, hh:mm a"));
@@ -10,7 +14,10 @@ $("#currentDay").text(moment().format("dddd, MMMM Do, hh:mm a"));
          //If they did input text, store the conciding time and user's text input into localStorage
     //If NOT clicked, create an alert saying that the user must hit save -- MAY REMOVE THIS  IDEA
 //Step 4: Have that localStorage information stay displayed, even with page refresh
-//$(".pumpkin")
+
+$(".pumpkin").click(function() {
+alert($("input:text").val()); //Testing to see if this displays the text that the user input, which it does
+}); 
 
 
 //This references the text input field - we will need to make this respond to entries
