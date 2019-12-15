@@ -4,10 +4,14 @@ $("#currentDay").text(moment().format("dddd, MMMM Do, hh:mm a"));
 
 
 //This references the Save Button
-//Step 1 for Save Button: Make it clickable
-//Step 2 "" "": Store the time and user input into localStorage
-//Step 3 "" "": Have that localStorage information STAY there, even iwth page refresh 
+//Step 1 for Save Button: Make it clickable 
+//Step 2: Make an if statement to check for clicking 
+    //If clicked, make an if statement that FIRST checks to see if user input text into the textarea in a specific time slot 
+         //If they did input text, store the conciding time and user's text input into localStorage
+    //If NOT clicked, create an alert saying that the user must hit save -- MAY REMOVE THIS  IDEA
+//Step 4: Have that localStorage information stay displayed, even with page refresh
 //$(".pumpkin")
+
 
 //This references the text input field - we will need to make this respond to entries
 //$(".namers")
