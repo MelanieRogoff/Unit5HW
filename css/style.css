@@ -16,7 +16,7 @@ body {
   .namers {
     width: 800px;
     height: 40px;
-    margin-left: 4px;
+    margin-left: 8px;
   }
   .jumbotron {
     text-align: center;
@@ -75,7 +75,7 @@ body {
     transition: all .3s ease-in-out;
   }
 
-  .pumpkin {
+  .saver {
     height: 39px;
     width: 39px;
     margin-left: 5px;
