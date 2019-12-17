@@ -1,6 +1,7 @@
 //Variable Declarations
 const userInput = '';
 let currently = $("#currentDay");
+const dayTimes = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 
 setInterval(() => { //This is the "fat arrow" function syntax -- this function makes sure that time moves
     const now = moment(); //Starts the interval the moment page loads
@@ -9,21 +10,17 @@ setInterval(() => { //This is the "fat arrow" function syntax -- this function m
 }, 1000);
 
 //When Save button is clicked ... 
-$(".saver").on("click", function() {
-    event.preventDefault();
-    console.log($(".namers").val());
-    //If clicked, make if st8ment that 
-            // - Checks 2 see if user input text into textarea in specific time slot 
-            //If yes,  store coinciding time & user's text input in2 localStorage
-    //If NOT clicked, create alert saying user must hit save -- MAY REMOVE THIS  IDEA
-//Have that localStorage information stay displayed, even with page refresh
+$(".saver").on("click", function() {  //saver = save button class
+    const letsTry = ($(this).siblings("input").val()); // See  text input of EACH timeslot
+    localStorage.setItem('textinput', letsTry);  //Saves to localStorage
+    displays();
+});
+//Have localStorage information stay displayed, even with page refresh
 
-}); 
-
-
-//Below code references text input field - need to make this respond to entries
-//$(".namers")
-
+function displays () {
+    const stuff = localStorage.getItem('textinput');
+    $(".namers").text('textinput');
+}
 //TimeBlocks -- must change colors based on time of day, use if statement for checks
 
     // const pastTimeBlock -- Create check to see if current timeblock events already happened, and if have, make them green. If not, no color change.
