@@ -1,26 +1,48 @@
-//Variable Declarations
-const userInput = '';
-let currently = $("#currentDay");
-const dayTimes = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+$(document).ready(function() {
+    //displays();
+})
 
-setInterval(() => { //This is the "fat arrow" function syntax -- this function makes sure that time moves
-    const now = moment(); //Starts the interval the moment page loads
+//Variable Declarations
+let currently = $("#currentDay");
+const nameEl = $(".namers");
+const userInput = JSON.parse(localStorage.getItem('textinput')) || [];
+//console.log(userInput);
+
+setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
+    const now = moment(); //Starts the interval when page loads
     const date = now.format("dddd, MMMM Do, hh:mm a");
     currently.text(date);
 }, 1000);
 
+
 //When Save button is clicked ... 
-$(".saver").on("click", function() {  //saver = save button class
-    const letsTry = ($(this).siblings("input").val()); // See  text input of EACH timeslot
-    localStorage.setItem('textinput', letsTry);  //Saves to localStorage
+$(".saver").on('click', function() {  
+    const letsTry = ($(this).siblings("input").val()); // Text input of EACH timeslot
+    const stTry = JSON.stringify(letsTry);
+    const stringer = JSON.stringify(values);
+    //arrayname.push below cuz push is on the array
+    userInput.push(stTry, stringer);
+    localStorage.setItem('textinput', JSON.stringify(userInput));  //Saves to localStorage - push into the array yo u want to stringify
     displays();
 });
-//Have localStorage information stay displayed, even with page refresh
-
+ 
 function displays () {
-    const stuff = localStorage.getItem('textinput');
-    $(".namers").text('textinput');
+    alert("HALLO TEST");
 }
+
+//Create array of objects SPECIFICALLY for timeslots
+const values = [
+    {time: "9am", value: "stuff"},
+    {time: "10am", value: "stuff"},
+    {time: "11am", value: "stuff"},
+    {time: "12pm", value: "stuff"},
+    {time: "1pm", value: "stuff"},
+    {time: "2pm", value: "stuff"},
+    {time: "3pm", value: "stuff"},
+    {time: "4pm", value: "stuff"},
+    {time: "5pm", value: "stuff"},
+];
+
 //TimeBlocks -- must change colors based on time of day, use if statement for checks
 
     // const pastTimeBlock -- Create check to see if current timeblock events already happened, and if have, make them green. If not, no color change.
