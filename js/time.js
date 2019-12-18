@@ -1,12 +1,5 @@
-$(document).ready(function() {
-    //displays();
-})
-
 //Variable Declarations
 let currently = $("#currentDay");
-const nameEl = $(".namers");
-const userInput = JSON.parse(localStorage.getItem('textinput')) || [];
-//console.log(userInput);
 
 setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
     const now = moment(); //Starts the interval when page loads
@@ -14,34 +7,14 @@ setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
     currently.text(date);
 }, 1000);
 
-
 //When Save button is clicked ... 
-$(".saver").on('click', function() {  
-    const letsTry = ($(this).siblings("input").val()); // Text input of EACH timeslot
-    const stTry = JSON.stringify(letsTry);
-    const stringer = JSON.stringify(values);
-    //arrayname.push below cuz push is on the array
-    userInput.push(stTry, stringer);
-    localStorage.setItem('textinput', JSON.stringify(userInput));  //Saves to localStorage - push into the array yo u want to stringify
-    displays();
-});
- 
-function displays () {
-    alert("HALLO TEST");
-}
-
-//Create array of objects SPECIFICALLY for timeslots
-const values = [
-    {time: "9am", value: "stuff"},
-    {time: "10am", value: "stuff"},
-    {time: "11am", value: "stuff"},
-    {time: "12pm", value: "stuff"},
-    {time: "1pm", value: "stuff"},
-    {time: "2pm", value: "stuff"},
-    {time: "3pm", value: "stuff"},
-    {time: "4pm", value: "stuff"},
-    {time: "5pm", value: "stuff"},
-];
+$(".saver").click(function() {
+    $('input[type="text"]').each(function() {
+        const id = $(this).attr('id');
+        const value = $(this).val();
+        localStorage.setItem(id, value);
+        });
+    });
 
 //TimeBlocks -- must change colors based on time of day, use if statement for checks
 
