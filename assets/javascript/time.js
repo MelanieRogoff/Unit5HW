@@ -11,12 +11,6 @@ setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
 
 //Changing colors depending on time of day
 
-function changer ()
-
-
-
-
-
 //When Save button is clicked ... 
 $(".saver").click(function() {
     $('input[type="text"]').each(function() {

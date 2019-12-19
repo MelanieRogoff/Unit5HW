@@ -1,7 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    background-image: url("../assets/pinkk.jpg");
+    background-image: url("../images/pinkk.jpg");
   }
   
   .namers {
@@ -13,7 +13,7 @@ body {
   .jumbotron {
     text-align: center;
     color: black;
-    background-image: url("../assets/pinkk.jpg");
+    background-image: url("../images/pinkk.jpg");
   }
   
   .description{
