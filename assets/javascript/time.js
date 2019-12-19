@@ -36,12 +36,12 @@ colorChecks(17, "#fivePm");
 
 function colorChecks(time, theId) {
     if (nowHour > time) {
-        $(theId).addClass("future");
+        $(theId).addClass("past"); //This is saying that, for example, if the current time is 2:31 and time is 9am, 9am is in the past. 
     }
     if (nowHour < time) {
-        $(theId).addClass("past");
+        $(theId).addClass("future");
     }
-    if (nowHour === time) {
+    if (nowHour == time) {
         $(theId).addClass("present");
     }
 }
