@@ -1,6 +1,6 @@
 //Variable Declarations
-let currently = $("#currentDay");
-
+let currently = $("#currentDay"); //Where the current day is displayed
+let nowHour = moment().format("H");
 
 setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
     let now = moment(); //Starts the interval when page loads
@@ -8,8 +8,16 @@ setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
     currently.text(date);
 }, 1000);
 
-
 //Changing colors depending on time of day
+colorChecks(9, "#nineAm");
+colorChecks(10, "#tenAm");
+colorChecks(11, "#elevenAm");
+colorChecks(12, "#noon");
+colorChecks(1, "#onePm");
+colorChecks(2, "#twoPm");
+colorChecks(3, "#threePm");
+colorChecks(4, "#fourPm");
+colorChecks(5, "#fivePm");
 
 //When Save button is clicked ... 
 $(".saver").click(function() {
@@ -17,8 +25,21 @@ $(".saver").click(function() {
         const id = $(this).attr('id');
         const value = $(this).val();
         localStorage.setItem(id, value);
+        const getter = localStorage.getItem(id);
         });
     });
+
+function colorChecks(time, theId) {
+    if (nowHour > time) {
+        $(theId).addClass("future");
+    }
+    if (nowHour < time) {
+        $(theId).addClass("past");
+    }
+    if (nowHour === time) {
+        $(theId).addClass("present");
+    }
+}
 
 //TimeBlocks -- must change colors based on time of day, use if statement for checks
 
