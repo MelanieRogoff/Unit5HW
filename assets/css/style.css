@@ -59,3 +59,26 @@ body {
   position: absolute;
   left: 50px;
 }
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .container {
+    text-align: center;
+    left: 50px;
+    width: 80px;
+  }
+  .timeSlots {
+    text-align: center;
+    width: 50px;
+    margin-right: -200px;
+  }
+  .saver {
+    height: 29px;
+    width: 29px;
+  }
+  .hours {
+    margin-left: -80px;
+    margin-top: 50px;
+  }
+}

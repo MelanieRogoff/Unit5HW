@@ -11,7 +11,7 @@ setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
 //When Save button is clicked ... 
 $(".saver").click(function() {
     $('input[type="text"]').each(function() {
-        const id = $(this).attr('id');
+        const id = $(this).attr('id'); 
         const value = $(this).val();
         localStorage.setItem(id, value);
         });
