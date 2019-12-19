@@ -28,12 +28,12 @@ body {
   }
 
   .past {
-    background-color: #d3d3d3;
+    background-color: grey;
     color: white;
   }
   
   .present {
-    background-color: #ff6961;
+    background-color: blue;
     color: white;
   }
   

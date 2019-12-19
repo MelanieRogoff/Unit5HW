@@ -8,35 +8,31 @@ setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
     currently.text(date);
 }, 1000);
 
+//When Save button is clicked ... 
+$(".saver").click(function() {
+    $('input[type="text"]').each(function() {
+        const id = $(this).attr('id');
+        const value = $(this).val();
+        localStorage.setItem(id, value);
+        });
+    });
 
-$(".saver").on("click", function(){
-    let saves = $(this).prev().val();
-    localStorage.setItem($(this).val(), saves);
+$('input[type="text"]').each(function(){
+    const getting = $(this).attr('id'); //This says that for each input of text, grab this input text's id
+    const letsGrab = localStorage.getItem(getting); //Put that id in localStorage to grab the value
+    document.getElementById(getting).value = letsGrab; //This says that the empty value in the id is being replaced by what's in letsGrab
 });
-
-
-// Get localStorage items to populate text areas after page is refreshed
-$("#nineAm").val(localStorage.getItem("9"));
-$("#tenAm").val(localStorage.getItem("10"));
-$("#eleven").val(localStorage.getItem("11"));
-$("#noon").val(localStorage.getItem("12"));
-$("#onePm").val(localStorage.getItem("13"));
-$("#twoPm").val(localStorage.getItem("14"));
-$("#threePm").val(localStorage.getItem("15"));
-$("#fourPm").val(localStorage.getItem("16"));
-$("#fivePm").val(localStorage.getItem("17"));
-
 
 //Changing colors depending on time of day
 colorChecks(9, "#nineAm");
 colorChecks(10, "#tenAm");
 colorChecks(11, "#eleven");
 colorChecks(12, "#noon");
-colorChecks(1, "#onePm");
-colorChecks(2, "#twoPm");
-colorChecks(3, "#threePm");
-colorChecks(4, "#fourPm");
-colorChecks(5, "#fivePm");
+colorChecks(13, "#onePm");
+colorChecks(14, "#twoPm");
+colorChecks(15, "#threePm");
+colorChecks(16, "#fourPm");
+colorChecks(17, "#fivePm");
 
 function colorChecks(time, theId) {
     if (nowHour > time) {
@@ -49,10 +45,3 @@ function colorChecks(time, theId) {
         $(theId).addClass("present");
     }
 }
-
-//TimeBlocks -- must change colors based on time of day, use if statement for checks
-
-    // const pastTimeBlock -- Create check to see if current timeblock events already happened, and if have, make them green. If not, no color change.
-    // const currentTimeBlock -- Create a check to see if the current timeblock events are happening at the present time, and if they are, have them be blue. If not, no color change.
-    // const futureTimeBlock  -- Create a check to see if the future timeblock events are going to happen after the present time, and if they are, have them be red. If not, no color change.
-    // const emptyTimeBlock // Create a check (if statement) to see if there's any TimeBlocks with no information. If no infromation, turn the text area gray. If not, no color change.
