@@ -8,26 +8,35 @@ setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
     currently.text(date);
 }, 1000);
 
+
+$(".saver").on("click", function(){
+    let saves = $(this).prev().val();
+    localStorage.setItem($(this).val(), saves);
+});
+
+
+// Get localStorage items to populate text areas after page is refreshed
+$("#nineAm").val(localStorage.getItem("9"));
+$("#tenAm").val(localStorage.getItem("10"));
+$("#eleven").val(localStorage.getItem("11"));
+$("#noon").val(localStorage.getItem("12"));
+$("#onePm").val(localStorage.getItem("13"));
+$("#twoPm").val(localStorage.getItem("14"));
+$("#threePm").val(localStorage.getItem("15"));
+$("#fourPm").val(localStorage.getItem("16"));
+$("#fivePm").val(localStorage.getItem("17"));
+
+
 //Changing colors depending on time of day
 colorChecks(9, "#nineAm");
 colorChecks(10, "#tenAm");
-colorChecks(11, "#elevenAm");
+colorChecks(11, "#eleven");
 colorChecks(12, "#noon");
 colorChecks(1, "#onePm");
 colorChecks(2, "#twoPm");
 colorChecks(3, "#threePm");
 colorChecks(4, "#fourPm");
 colorChecks(5, "#fivePm");
-
-//When Save button is clicked ... 
-$(".saver").click(function() {
-    $('input[type="text"]').each(function() {
-        const id = $(this).attr('id');
-        const value = $(this).val();
-        localStorage.setItem(id, value);
-        const getter = localStorage.getItem(id);
-        });
-    });
 
 function colorChecks(time, theId) {
     if (nowHour > time) {
