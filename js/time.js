@@ -1,11 +1,21 @@
 //Variable Declarations
 let currently = $("#currentDay");
 
+
 setInterval(() => { //"Fat arrow" syntax -- this fx makes sure time moves
-    const now = moment(); //Starts the interval when page loads
-    const date = now.format("dddd, MMMM Do, hh:mm a");
+    let now = moment(); //Starts the interval when page loads
+    let date = now.format("dddd, MMMM Do, hh:mm a");
     currently.text(date);
 }, 1000);
+
+
+//Changing colors depending on time of day
+
+function changer ()
+
+
+
+
 
 //When Save button is clicked ... 
 $(".saver").click(function() {
